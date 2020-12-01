@@ -22,8 +22,8 @@ window.addEventListener("load", function() {
 
          }else{
          faultyItems.style.visibility = 'visible';
-         document.getElementById('pilotStatus').innerHTML = `Pilot ${pilot} Ready`;
-         document.getElementById('copilotStatus').innerHTML = `Copilot ${copilot} Ready`;
+         document.getElementById('pilotStatus').innerHTML = `Pilot ${pilotName} Ready`;
+         document.getElementById('copilotStatus').innerHTML = `Copilot ${copilotName} Ready`;
 
          if (fuelLevel < 10000){
          document.getElementById('fuelStatus').innerHTML = "Not enough fuel for the journey";
