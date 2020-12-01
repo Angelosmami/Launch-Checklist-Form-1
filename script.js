@@ -12,13 +12,18 @@ window.addEventListener("load", function() {
       let launchStatus =document.getElementById('launchStatus');
 
 
-      if (pilotName === "" || typeof pilotName != 'string' || copilotName === "" || typeof copilotName!= 'string' || fuelLevel === "" || isNaN(fuelLevel) || cargoMass === "" || isNaN(cargoMass)) {
+      if (pilotName === "" || copilotName === "" || fuelLevel === "" || cargoMass === "") {
          alert("All fields are required!");
 
          faultyItems.style.visibility = 'hidden';
          launchStatus.innerHTML = "Awaiting Information Before Launch";
-         
-         
+
+         }else{
+            if (pilotName != "string" || copilotName != "string" || isNaN(fuelLevel) || isNaN(cargoMass)) {
+               alert("Make sure you enter valid information for each field");
+
+               faultyItems.style.visibility = 'hidden';
+               launchStatus.innerHTML = "Awaiting Information Before Launch";
 
          }else{
          faultyItems.style.visibility = 'visible';
@@ -44,6 +49,7 @@ window.addEventListener("load", function() {
             document.getElementById('cargoStatus').innerHTML = "Cargo mass low enough for launch";
             launchStatus.innerHTML = "Shuttle ready for launch";
             launchStatus.style.color = 'green';
+         }
             }
          }
       }  
@@ -53,7 +59,7 @@ window.addEventListener("load", function() {
 window.addEventListener('load', function(){
    fetch('https://handlers.education.launchcode.org/static/planets.json').then(function(response){
    response.json().then(function(planets){
-      let planet = planets[0];
+      let planet = planets[3];
       let destination = document.getElementById('missionTarget');
       destination.innerHTML = 
          `<h2>Mission Destination</h2>
@@ -70,17 +76,3 @@ window.addEventListener('load', function(){
    })
 })
 
-
-      // Write your JavaScript code here!
-
-/* This block of code shows how to format the HTML once you fetch some planetary JSON!
-<h2>Mission Destination</h2>
-<ol>
-   <li>Name: ${}</li>
-   <li>Diameter: ${}</li>
-   <li>Star: ${}</li>
-   <li>Distance from Earth: ${}</li>
-   <li>Number of Moons: ${}</li>
-</ol>
-<img src="${}">
-*/
