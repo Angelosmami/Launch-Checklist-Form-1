@@ -15,15 +15,16 @@ window.addEventListener("load", function() {
       if (pilotName === "" || copilotName === "" || fuelLevel === "" || cargoMass === "") {
          alert("All fields are required!");
 
-         faultyItems.style.visibility = 'hidden';
-         launchStatus.innerHTML = "Awaiting Information Before Launch";
+         // faultyItems.style.visibility = 'hidden';
+         // launchStatus.innerHTML = "Awaiting Information Before Launch";
 
          }else{
-            if (pilotName != "string" || copilotName != "string" || isNaN(fuelLevel) || isNaN(cargoMass)) {
+            // if (isNaN(fuelLevel)){
+               if (isNaN(pilotName)===false || isNaN(copilotName)===false || isNaN(fuelLevel) || isNaN(cargoMass)) {
                alert("Make sure you enter valid information for each field");
 
-               faultyItems.style.visibility = 'hidden';
-               launchStatus.innerHTML = "Awaiting Information Before Launch";
+               // faultyItems.style.visibility = 'hidden';
+               // launchStatus.innerHTML = "Awaiting Information Before Launch";
 
          }else{
          faultyItems.style.visibility = 'visible';
